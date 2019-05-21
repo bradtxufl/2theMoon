@@ -6,7 +6,7 @@ background-color: gray;
 .splash {
   height: 100vh;
   width: 100vw;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -95,7 +95,7 @@ h1 {
 }
 
 .hype {
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: column;
   margin-bottom: 40px;
