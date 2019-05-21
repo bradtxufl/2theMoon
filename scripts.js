@@ -8,13 +8,37 @@ document.addEventListener('DOMContentLoaded', function () {
   var splash = document.querySelector('.splash')
   var zipcode = 00000
   var changeLocation = document.querySelector('#changeLocation')
+  var temperatures = document.querySelector('#temperatures')
+  var weatherImage = document.querySelector('#weatherImage')
 
   setLocation.addEventListener('click', function (e) {
     e.preventDefault()
+    zipcode = zipcodeField.value
+    var url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=a8e697a95390d4ae547c8e0dcaadae89`
+    function weatherize (obj) {
+      console.log(obj)
+      let high = ((obj['main']['temp'] * (9/5)) - 459.67).toFixed(0)
+      let low = ((obj['main']['temp_min'] * (9/5)) - 459.67).toFixed(0)
+      let current = ((obj['main']['temp_max'] * (9/5)) - 459.67).toFixed(0)
+      console.log(high)
+      console.log(low)
+      console.log(current)
+      temperatures.innerHTML = `Now: ${current}°  High: ${high}°  Low: ${low}°`
+    }
+
+    fetch(url)
+      .then(function(response) {
+        return response.json()
+      })
+      .then(function(data) {
+        return JSON.stringify(data)
+      })
+      .then(function(string) {
+        weatherize(JSON.parse(string))
+      })
 
     splash.style.display = 'none'
     cityStateDisplay.innerHTML = `${cityField.value}, ${stateField.value}`
-    zipcode = zipcodeField.value
     console.log(zipcodeField.value)
 
     changeLocation.addEventListener('click', function (e) {
