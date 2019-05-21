@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='normalize.css'>
+    <link rel='stylesheet' href='styles.css'>
+
+    <title>2theMoon</title>
+  </head>
+  <body>
+    <div class='splash'>
+    <img class='splashimg' src='nightrun.jpg' alt='night running'>
+      <div class='ontop'>
+        <h1>2 the Moon: Your Workout Distance Tracker</h1><br>
+        <form>
+          <h4>What's your zipcode?</h4><br>
+          <input class='form-control' type='text' id='zip' placeholder='Zip Code'><br>
+          <input type='text' id='city' placeholder='City' class='form-control' disabled><br>
+          <input type='text' id='state' placeholder='State' class='form-control' disabled><br>
+          <button class='btn btn-warning' type='submit'>Set Location</button><br>
+        </form>
+      </div>
+    </div>
+    <div class='blackground container-fluid'>
+      <div class='weather container'>
+        <div class='col'>
+          <h1>Phoenix, Arizona</h1>
+          <button class='btn btn-warning' type='submit'>Change my Location</button><br>
+        </div>
+        <div class='col'>
+          <img src='placeholder.png' alt='forecast icon'>
+          <h2>High: 95° Low: 42°</h2>
+        </div>
+      </div>
+    </div>
+    <div class='graphs container'>
+      <div class='row-graphs'>
+        <h1>Your total distance: 98 miles!</h1>
+      </div>
+      <div class='row-graphs'>
+        <div class='col'>
+          <img src='football.png' alt='football'>
+          <h4># of Football Fields</h4>
+          <h3>1725</h3>
+        </div>
+        <div class='col'>
+          <img src='cactus.png' alt='cactus'>
+          <h4>% to Grand Canyon</h4>
+          <h3>43%</h3>
+        </div>
+      </div>
+      <div class='row-graphs'>
+        <div class='col'>
+          <img src='waterfall.jpeg' alt='Niagara Falls'>
+          <h4>% to Niagara Falls</h4>
+          <h3>3%</h3>
+        </div>
+        <div class='col'>
+          <img src='moon.png' alt='moon'>
+          <h4>% to Moon</h4>
+          <h3>0.04%</h3>
+        </div>
+      </div>
+      <div class='compare-graph'>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="104"></div>
+          <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="104"></div>
+          <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="104"></div>
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 46%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="104"></div>
+        </div>
+      </div>
+      <div class='row-methods'>
+        <div class='col'>
+          <h4>Hiking</h4>
+          <h3>14 miles</h3>
+        </div>
+        <div class='col'>
+          <h4>Swimming</h4>
+          <h3>39 miles</h3>
+        </div>
+        <div class='col'>
+          <h4>Biking</h4>
+          <h3>0 miles</h3>
+        </div>
+        <div class='col'>
+          <h4>Running</h4>
+          <h3>45 miles</h3>
+        </div>
+      </div>
+    </div>
+    <div class='forms container'>
+      <div class='col'>
+        <form>
+          <h4>I took a Hike!</h4>
+          <input class='form-control' type='text' placeholder='# of miles'>
+          <button type='submit' class='form-control btn-success'>submit my miles</button>
+        </form>
+      </div>
+      <div class='col'>
+        <form>
+          <h4>I took a Swim!</h4>
+          <input class='form-control' type='text' placeholder='# of laps'>
+          <button type='submit' class='form-control btn-info'>submit my laps</button>
+        </form>
+      </div>
+      <div class='col'>
+        <form>
+          <h4>I rode my Bike!</h4>
+          <input class='form-control' type='text' placeholder='# of miles'>
+          <button type='submit' class='form-control btn-warning'>submit my miles</button>
+        </form>
+      </div>
+      <div class='col'>
+        <form>
+          <h4>I Walked/Ran!</h4>
+          <input class='form-control' type='text' placeholder='# of miles'>
+          <button type='submit' class='form-control btn-danger'>submit my miles</button>
+        </form>
+      </div>
+    </div>
+    <div class='hype container'>
+      <div class='quote'>
+      <h1>'If you ain't first, yer last!' -Ricky Bobby</h1>
+      </div>
+      <div class='celebrationgif'>
+      <img src='https://media.giphy.com/media/44gu1V41ejJni/giphy.gif'>
+      </div>
+    </div>
+    <footer>
+      <p class='foot'>Powered by Silly Ideas</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='scripts.js'></script>
+  </body>
+</html>

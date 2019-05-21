@@ -1,0 +1,102 @@
+html,
+body {
+background-color: gray;
+}
+
+.splash {
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.splashimg {
+  position: fixed;
+  left: center;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+}
+
+.ontop {
+  margin-top: 10vh;
+  position: fixed;
+  left: center;
+  top: center;
+  height: 100vh;
+  z-index: 2;
+}
+
+.weather {
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: black;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.row-methods {
+  display: flex;
+  color: white;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+footer {
+  color: white;
+  background-color: lightgray;
+  padding-bottom: 20px;
+}
+.foot {
+  margin-left: 5vw;
+}
+
+h1 {
+  color: white;
+}
+
+.row-graphs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.compare-graph {
+  margin-top: 40px;
+}
+
+.progress {
+  margin: 1px;
+}
+
+.blackground {
+  background-color: black;
+  padding-top: 10px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.hype {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
