@@ -99,6 +99,8 @@ h1 {
   align-items: center;
   flex-direction: column;
   margin-bottom: 40px;
+  background-color: black;
+  padding-bottom: 20px;
 }
 
 #weatherImage {

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(high)
       console.log(low)
       console.log(current)
-      temperatures.innerHTML = `Now: ${current}°  High: ${high}°  Low: ${low}°`
+      temperatures.innerHTML = `Now: ${current}° | High: ${high}° | Low: ${low}°`
       weatherImage.src = `${obj['weather'][0]['icon']}.jpeg`
       cityStateDisplay.innerHTML = obj['name']
     }
@@ -76,6 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var runButton = document.querySelector('#runButton')
     var hype = document.querySelector('.hype')
 
+    function swim (laps) {
+      return (laps/32).toFixed(0)
+    }
+
     function football (miles) {
       footballFields.innerHTML = (miles * 17.6).toFixed(0)
     }
@@ -97,13 +101,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     swimButton.addEventListener('click', function (e) {
       e.preventDefault()
-      totalDistanceNum += parseInt(swimInput.value)
+      var swimMiles = swim(parseInt(swimInput.value))
+      totalDistanceNum += parseInt(swimMiles)
       totalDistance.innerHTML = `Your total distance: ${totalDistanceNum} miles`
-      swimDistanceNum += parseInt(swimInput.value)
+      swimDistanceNum += parseInt(swimMiles)
       swimDistance.innerHTML = `${swimDistanceNum} miles`
       hype.style.display = 'flex'
       football(totalDistanceNum)
       luna(totalDistanceNum)
+      console.log(swimDistanceNum)
     })
 
     bikeButton.addEventListener('click', function (e) {
