@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(low)
       console.log(current)
       temperatures.innerHTML = `Now: ${current}°  High: ${high}°  Low: ${low}°`
+      weatherImage.src = `${obj['weather'][0]['icon']}.jpeg`
+      cityStateDisplay.innerHTML = obj['name']
     }
 
     fetch(url)
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
 
     splash.style.display = 'none'
-    cityStateDisplay.innerHTML = `${cityField.value}, ${stateField.value}`
+    // cityStateDisplay.innerHTML = `${cityField.value}, ${stateField.value}`
     console.log(zipcodeField.value)
 
     changeLocation.addEventListener('click', function (e) {

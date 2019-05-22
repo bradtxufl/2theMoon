@@ -100,3 +100,7 @@ h1 {
   flex-direction: column;
   margin-bottom: 40px;
 }
+
+#weatherImage {
+  margin-bottom: 20px;
+}
