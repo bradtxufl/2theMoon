@@ -89,10 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/1808/1808428.svg'
     }
-    console.log(obj['weather'][0]['icon'])
-
       cityStateDisplay.innerHTML = obj['name']
     }
+
 
     fetch(url)
       .then(function(response) {
@@ -179,6 +178,9 @@ document.addEventListener('DOMContentLoaded', function () {
       temperatures.innerHTML = `Now: ${current}° | High: ${high}° | Low: ${low}°`
       weatherImage.src = `${obj['weather'][0]['icon']}.jpeg`
       cityStateDisplay.innerHTML = obj['name']
+      setTimeout(function() {
+        location.reload()
+      }, 1000)
     }
 
     fetch(url)
@@ -525,4 +527,5 @@ function update (totalDist) {
       localStorage.setItem('runDist', JSON.stringify(runDist))
       localStorage.setItem('totDist', JSON.stringify(totalDist))
     })
+
 })
