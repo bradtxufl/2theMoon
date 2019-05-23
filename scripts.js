@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var bikeButton = document.querySelector('#bikeButton')
   var runButton = document.querySelector('#runButton')
   var heckYes = document.querySelector('#heckYes')
+  var wb = document.querySelector('#weatherBackground')
 
   heckYes.addEventListener('click', function () {
     location.reload()
@@ -74,20 +75,28 @@ document.addEventListener('DOMContentLoaded', function () {
       temperatures.innerHTML = `Now: ${current}° | High: ${high}° | Low: ${low}°`
       if (obj['weather'][0]['icon'] == '01d') {
         weatherImage.src = 'https://image.flaticon.com/icons/svg/136/136723.svg'
+        wb.src = 'clearday.jpg'
     } else if (obj['weather'][0]['icon'] == '01n') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/740/740878.svg'
+      wb.src = 'clearnight.jpg'
     } else if (obj['weather'][0]['icon'] == '02d' || obj['weather'][0]['icon'] == '03d' || obj['weather'][0]['icon'] == '04d') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/861/861059.svg'
+      wb.src = 'cloudday.jpg'
     } else if (obj['weather'][0]['icon'] == '02n' || obj['weather'][0]['icon'] == '03n' || obj['weather'][0]['icon'] == '04n') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/1113/1113763.svg'
+      wb.src = 'nightcloud.jpg'
     } else if (obj['weather'][0]['icon'] == '09d' || obj['weather'][0]['icon'] == '10d' || obj['weather'][0]['icon'] == '09n' || obj['weather'][0]['icon'] == '10n') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/414/414974.svg'
+      wb.src = 'rain.jpg'
     } else if (obj['weather'][0]['icon'] == '11d' || obj['weather'][0]['icon'] == '11n') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/1684/1684363.svg'
+      wb.src = 'lightning.jpg'
     } else if (obj['weather'][0]['icon'] == '13d' || obj['weather'][0]['icon'] == '13n') {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/642/642000.svg'
+      wb.src = 'snow.jpg'
     } else {
       weatherImage.src = 'https://image.flaticon.com/icons/svg/1808/1808428.svg'
+      wb.src = 'fog.jpg'
     }
       cityStateDisplay.innerHTML = obj['name']
     }
