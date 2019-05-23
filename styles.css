@@ -108,3 +108,40 @@ h1 {
   width: 500px;
   margin: 0 auto;
 }
+
+.btn-primary {
+  background-color: rgba(0, 143, 251, 0.85);
+  border: rgba(0, 143, 251, 0.85);
+}
+
+.btn-warning {
+  background-color: rgba(254, 176, 25, 0.85);
+  border: rgba(254, 176, 25, 0.85);
+}
+
+.btn-danger {
+  background-color: rgba(255, 69, 96, 0.85);
+  border: rgba(255, 69, 96, 0.85);
+}
+
+.btn-success {
+  background-color: rgba(0, 227, 150, 0.85);
+  border: rgba(0, 227, 150, 0.85);
+  color: black;
+}
+
+.bg-success {
+  background-color: rgba(0, 227, 150, 0.85)!important;
+}
+
+.bg-warning {
+  background-color: rgba(254, 176, 25, 0.85)!important;
+}
+
+.bg-danger {
+  background-color: rgba(255, 69, 96, 0.85)!important;
+}
+
+.bg-primary {
+  background-color: rgba(0, 143, 251, 0.85)!important;
+}

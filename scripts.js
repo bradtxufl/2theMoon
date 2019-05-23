@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
 
       series: [graphSpace()],
-      colors: ['#4d92ed'],
+      colors: ['rgba(0, 143, 251, 0.85)'],
 
       plotOptions: {
         radialBar: {
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
 
       series: [graphGC()],
-      colors: ['#54f29e'],
+      colors: ['rgba(0, 227, 150, 0.85)'],
 
       plotOptions: {
         radialBar: {
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
 
       series: [graphNF()],
-      colors: ['#f7c145'],
+      colors: ['rgba(254, 176, 25, 0.85)'],
 
       plotOptions: {
         radialBar: {
@@ -422,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
 
       series: [graphMoon],
-      colors: ['#f74444'],
+      colors: ['rgba(255, 69, 96, 0.85)'],
 
       plotOptions: {
         radialBar: {
