@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+ // selecting dom items like its my job
   var setLocation = document.querySelector('#setLocation')
   var zipcodeField = document.querySelector('#zip')
   var cityField = document.querySelector('#city')
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var wb = document.querySelector('#weatherBackground')
   var gif = document.querySelector('#celebration')
   var quote = document.querySelector('#exampleModalCenterTitle')
-
+//randomizing the content of the popup when a workout is submitted with every page load
   function pumpMeUp () {
     var gifs = ['https://media.giphy.com/media/iBdKJ6iIubtRK/giphy.gif',
     'https://media.giphy.com/media/xUPGcJaL5ODxniWMNO/giphy.gif',
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'https://media.giphy.com/media/yoJC2COHSxjIqadyZW/giphy.gif',
     'https://media.giphy.com/media/yYT7ytuZpJjG0/giphy.gif',
     'https://media.giphy.com/media/44gu1V41ejJni/giphy.gif']
-
     var quotes = ['"Those at the top of the mountain didn\'t fall there" - Ann Onymous',
     '"I would rather risk wearing out than rusting out" - Theodore Roosevelt',
     '"Things may come to those who wait, but only the things left by those who hustle" - Abraham Lincoln',
@@ -59,34 +58,26 @@ document.addEventListener('DOMContentLoaded', function () {
     '"YAAAYYAYAYYYYYAYAAYYY" - Kermit the Frog',
     '"Crushed it" - Fat Amy',
     '"Meep, Meep" - The Roadrunner']
-
     gif.src = gifs[Math.floor(Math.random() * 10)]
     quote.innerHTML = quotes[Math.floor(Math.random() * 10)]
-
   }
   pumpMeUp()
-
-
-
+//reloading the page when a popup is minimized so the graphs can catch up to the asyncs and display correctly
   heckYes.addEventListener('click', function () {
     location.reload()
   })
-
+//setting local storage for all of the workout stats
   var totalDist = localStorage.getItem('totDist') || 0
   totalDistance.innerHTML = `Your total distance: ${(JSON.parse(totalDist))} miles`
-
   var hikeDist = localStorage.getItem('hikeDist') || 0
   hikeDistance.innerHTML = `${hikeDist} miles`
-
   var swimDist = localStorage.getItem('swimDist') || 0
   swimDistance.innerHTML = `${swimDist} miles`
-
   var bikeDist = localStorage.getItem('bikeDist') || 0
   bikeDistance.innerHTML = `${bikeDist} miles`
-
   var runDist = localStorage.getItem('runDist') || 0
   runDistance.innerHTML = `${runDist} miles`
-
+//clearing local storage of workouts and reloading the page so all the charts zero out
   clearWorkouts.addEventListener('click', function (e) {
     localStorage.removeItem('totDist')
     localStorage.removeItem('hikeDist')
@@ -95,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('runDist')
     location.reload()
   })
-
+//fetching the weather from openweathermap api and updating the temps, weather icon, background pictions, and location name
   var storedZip = localStorage.getItem('storedZip')
   if (storedZip) {
     splash.style.display = 'none'
@@ -133,8 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
       cityStateDisplay.innerHTML = obj['name']
     }
-
-
     fetch(url)
       .then(function(response) {
         return response.json()
@@ -146,18 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
         weatherize(JSON.parse(string))
       })
   }
-
+// fetching the distance between the entered zip code and the Grand Canyon
   var canyonGrande = localStorage.getItem('gcfar') || 0
-
   var gcDist = function (zippy) {
     var url = `https://api.zip-codes.com/ZipCodesAPI.svc/1.0/CalculateDistance/ByZip?fromzipcode=${zippy}&tozipcode=86023&key=IA03X3J1TK051FCJXPMR`
     function package (obj) {
       canyonGrande = parseInt(obj['DistanceInMiles']).toFixed(0)
-      console.log(canyonGrande)
-      console.log(typeof canyonGrande)
       localStorage.setItem('gcfar', canyonGrande)
     }
-
     fetch(url)
       .then(function(response) {
         return response.json()
@@ -168,22 +153,16 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function(string) {
         package(JSON.parse(string))
       })
-
   }
-
   grandCanyon.innerHTML = canyonGrande + ' miles'
-
+// fetching the distance between the entered zipcode and Niagara Falls
   var fallsNiag = localStorage.getItem('nffar') || 0
-
   var nfDist = function (zippy) {
     var url = `https://api.zip-codes.com/ZipCodesAPI.svc/1.0/CalculateDistance/ByZip?fromzipcode=${zippy}&tozipcode=14301&key=IA03X3J1TK051FCJXPMR`
     function packageDos (obj) {
       fallsNiag = parseInt(obj['DistanceInMiles']).toFixed(0)
-      console.log(fallsNiag)
-      console.log(typeof fallsNiag)
       localStorage.setItem('nffar', fallsNiag)
     }
-
     fetch(url)
       .then(function(response) {
         return response.json()
@@ -194,18 +173,15 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function(string) {
         packageDos(JSON.parse(string))
       })
-
   }
-
   niagaraFalls.innerHTML = fallsNiag + ' miles'
-
-
+//clearing local storage of location and showing option to input zip again
   changeLocation.addEventListener('click', function (e) {
     localStorage.removeItem('storedZip')
     e.preventDefault()
     splash.style.display = 'flex'
   })
-
+//setting location and weather, then reloading the page once the APIs have had a chance to bring back the needed values
   setLocation.addEventListener('click', function (e) {
     e.preventDefault()
     localStorage.setItem('storedZip', zipcodeField.value)
@@ -224,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
         location.reload()
       }, 1000)
     }
-
     fetch(url)
       .then(function(response) {
         return response.json()
@@ -235,35 +210,30 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function(string) {
         weatherize(JSON.parse(string))
       })
-
     splash.style.display = 'none'
-
   })
-
+//converting swim laps to miles (rounded to the nearest mile)
     function swim (laps) {
       return (laps/32).toFixed(0)
     }
-
+//converting total distance to # of football fields and displaying it
     function football (miles) {
       footballFields.innerHTML = (miles * 17.6).toFixed(0)
     }
     football(totalDist)
-
-
+//setting the percentages for the progress bar
     function progbar() {
       var green = (JSON.parse(hikeDist) / JSON.parse(totalDist)) * 101
       var blue = (JSON.parse(swimDist) / JSON.parse(totalDist)) * 101
       var yellow = (JSON.parse(bikeDist) / JSON.parse(totalDist)) * 101
       var red = (JSON.parse(runDist) / JSON.parse(totalDist)) * 101
-
       hbar.style = `width: ${green}%`
       sbar.style = `width: ${blue}%`
       bbar.style = `width: ${yellow}%`
       rbar.style = `width: ${red}%`
     }
-
     progbar()
-
+//setting percentage of distance to Space
     var graphSpace = function () {
       var spaceDist = ((totalDist / 62) * 100).toFixed(0)
       if (spaceDist > 100) {
@@ -272,8 +242,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return spaceDist
       }
     }
-
-    var graphGC = function () {
+//setting percentage of distance to Grand Canyon
+      var graphGC = function () {
       var numcg = JSON.parse(canyonGrande)
       var gcpc = ((totalDist / numcg) * 100).toFixed(0)
       if (gcpc > 100) {
@@ -282,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return gcpc
       }
     }
-
+//setting percentage of distance to Niagara Falls
     var graphNF = function () {
       var numfn = JSON.parse(fallsNiag)
       var nfpc = ((totalDist / numfn) * 100).toFixed(0)
@@ -292,9 +262,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return nfpc
       }
     }
-
+//setting percentage of distance to the Moon
     var graphMoon = (totalDist/2389).toFixed(4)
-
+//creating concentric circles graph with percentage values
     function graph() {
       var options1 = {
         chart: {
@@ -314,29 +284,24 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         labels: ['to Space', 'Grand Canyon', 'Niagara Falls', 'the Moon']
       };
-
       new ApexCharts(document.querySelector("#chart1"), options1).render();
-
     }
     graph()
-
+//setting space chart with percentage value
     function chartSpace() {
       var options = {
       chart: {
         height: 280,
         type: "radialBar"
       },
-
       series: [graphSpace()],
       colors: ['rgba(0, 143, 251, 0.85)'],
-
       plotOptions: {
         radialBar: {
           hollow: {
             margin: 15,
             size: "70%"
           },
-
           dataLabels: {
             showOn: "always",
             name: {
@@ -353,36 +318,30 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       },
-
       stroke: {
         lineCap: "round",
       },
       labels: ["To Space"]
     };
     var chart = new ApexCharts(document.querySelector("#chartspace"), options);
-
     chart.render();
-
     }
     chartSpace()
-
+//setting grand canyon chart with percentage value
     function chartGC() {
       var options = {
       chart: {
         height: 280,
         type: "radialBar"
       },
-
       series: [graphGC()],
       colors: ['rgba(0, 227, 150, 0.85)'],
-
       plotOptions: {
         radialBar: {
           hollow: {
             margin: 15,
             size: "70%"
           },
-
           dataLabels: {
             showOn: "always",
             name: {
@@ -399,36 +358,30 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       },
-
       stroke: {
         lineCap: "round",
       },
       labels: ["Grand Canyon"]
     };
     var chart = new ApexCharts(document.querySelector("#chartgc"), options);
-
     chart.render();
-
     }
     chartGC()
-
+//setting niagara falls chart with percentage value
     function chartNF() {
       var options = {
       chart: {
         height: 280,
         type: "radialBar"
       },
-
       series: [graphNF()],
       colors: ['rgba(254, 176, 25, 0.85)'],
-
       plotOptions: {
         radialBar: {
           hollow: {
             margin: 15,
             size: "70%"
           },
-
           dataLabels: {
             showOn: "always",
             name: {
@@ -445,36 +398,30 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       },
-
       stroke: {
         lineCap: "round",
       },
       labels: ["Niagara Falls"]
     };
     var chart = new ApexCharts(document.querySelector("#chartnf"), options);
-
     chart.render();
-
     }
     chartNF()
-
+//setting moon chart with percentage value
     function chartMoon() {
       var options = {
       chart: {
         height: 280,
         type: "radialBar"
       },
-
       series: [graphMoon],
       colors: ['rgba(255, 69, 96, 0.85)'],
-
       plotOptions: {
         radialBar: {
           hollow: {
             margin: 15,
             size: "70%"
           },
-
           dataLabels: {
             showOn: "always",
             name: {
@@ -491,22 +438,16 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       },
-
       stroke: {
         lineCap: "round",
       },
       labels: ["To the Moon"]
     };
-
-
-
     var chart = new ApexCharts(document.querySelector("#chartmoon"), options);
-
     chart.render();
-
     }
     chartMoon()
-
+//housing all the functions to update on submit of new workout
 function update (totalDist) {
   football(totalDist)
   graph()
@@ -516,7 +457,7 @@ function update (totalDist) {
   chartNF()
   progbar()
 }
-
+//on submit of new hiking workout
     hikeButton.addEventListener('click', function (e) {
       e.preventDefault()
       totalDist = JSON.parse(totalDist)
@@ -529,7 +470,7 @@ function update (totalDist) {
       localStorage.setItem('hikeDist', JSON.stringify(hikeDist))
       localStorage.setItem('totDist', JSON.stringify(totalDist))
     })
-
+//on submit of new swimming workout
     swimButton.addEventListener('click', function (e) {
       e.preventDefault()
       var swimMiles = swim(parseInt(swimInput.value))
@@ -543,7 +484,7 @@ function update (totalDist) {
       localStorage.setItem('swimDist', JSON.stringify(swimDist))
       localStorage.setItem('totDist', JSON.stringify(totalDist))
     })
-
+//on submit of new biking workout
     bikeButton.addEventListener('click', function (e) {
       e.preventDefault()
       totalDist = JSON.parse(totalDist)
@@ -556,7 +497,7 @@ function update (totalDist) {
       localStorage.setItem('bikeDist', JSON.stringify(bikeDist))
       localStorage.setItem('totDist', JSON.stringify(totalDist))
     })
-
+//on submit of new running workout
     runButton.addEventListener('click', function (e) {
       e.preventDefault()
       totalDist = JSON.parse(totalDist)
@@ -569,5 +510,4 @@ function update (totalDist) {
       localStorage.setItem('runDist', JSON.stringify(runDist))
       localStorage.setItem('totDist', JSON.stringify(totalDist))
     })
-
 })
